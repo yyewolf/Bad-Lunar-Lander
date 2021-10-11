@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"math/rand"
 	"os"
@@ -21,13 +20,8 @@ func main() {
 	runtime.GOMAXPROCS(runtime.NumCPU())
 	rand.Seed(time.Now().UnixNano())
 
-	grid := genGrid()
-	for _, line := range grid {
-		fmt.Println(line)
-	}
-
 	commandRouter = router{
-		Prefix: "%",
+		Prefix: "./.",
 		// ListenerPrefix: "<",
 		RateLimit: 2000,
 	}
@@ -44,7 +38,6 @@ func main() {
 	s.AddHandler(routeInteraction)
 	s.AddHandler(routeComponents)
 	s.AddHandler(botReady)
-	s.Identify.Intents = discordgo.IntentsAllWithoutPrivileged + 1<<1
 
 	log.Println("Starting the shard manager")
 	err = s.Open()

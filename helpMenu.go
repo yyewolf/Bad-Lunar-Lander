@@ -30,7 +30,7 @@ func makeEmbed() {
 	menuEmbed = make(map[string]*discordgo.MessageEmbed)
 	for menuName, cmds := range helpMenus {
 		embed := &discordgo.MessageEmbed{
-			Title: menuName + " : <:la_stegano_cest_nul:890701797495296020>",
+			Title: menuName + " :",
 			Color: botColor,
 		}
 		for i, cmd := range cmds {

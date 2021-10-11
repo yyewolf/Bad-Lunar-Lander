@@ -27,8 +27,17 @@ func loadCmd() {
 		Menu:        UtilitiesMenu,
 		Call:        help,
 	}
+
+	play := &Command{
+		Name:        "play",
+		Description: "Jouer.",
+		Menu:        GeneralMenu,
+		Call:        letsplay,
+	}
 	addCmd(help)
 	addCmd(ping)
+
+	addCmd(play)
 
 	makeEmbed()
 }
